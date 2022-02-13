@@ -29,7 +29,7 @@ const Home: NextPage = () => {
         </div>
         <div
           id="card"
-          className="absolute flex flex-col items-center justify-center w-screen p-10 bg-white rounded-md shadow-lg md:max-w-4xl md:p-20"
+          className="opacity-75 hover:opacity-100 absolute flex flex-col items-center justify-center w-screen p-10 bg-white rounded-md shadow-lg md:max-w-4xl md:p-20"
         >
           <div id="logo" className="relative flex gap-2 mr-3 uppercase">
             <div className="w-[72px] h-[36px] md:w-[144px] md:h-[72px] relative">
