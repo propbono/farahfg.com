@@ -28,3 +28,7 @@ html {
 .btn-secondary {
   @apply bg-navy hover:bg-primary focus:bg-primary focus:ring-navy;
 }
+
+.transition-long {
+  @apply transition duration-1000 ease-in-out delay-150;
+}
