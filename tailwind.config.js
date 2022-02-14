@@ -7,6 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      container: {
+        center: true,
+        padding: {
+          default: "2rem",
+          xs: "1rem",
+          sm: "2rem",
+          lg: "0rem",
+        },
+      },
       fontFamily: {
         sans: ["Poppins", ...defaultTheme.fontFamily.sans],
       },
