@@ -4,7 +4,7 @@ interface IHamburgerProps {
 
 export const Hamburger = ({ onClick }: IHamburgerProps) => {
   return (
-    <div className="block lg:hidden">
+    <div className="block md:hidden">
       <button
         className="flex items-center px-2 py-2 border rounded text-primary hover:border-primary"
         onClick={onClick}

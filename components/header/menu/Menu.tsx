@@ -18,19 +18,19 @@ const menu: IMenu[] = [
 
 const styles = {
   wrapper: "w-full block flex-grow md:w-auto md:flex md:items-center",
-  menu: "text-sm lg:ml-auto",
-  item: "block mt-4 lg:inline-block lg:mt-0 hover:text-primary font-bold text-xl mr-6 transition duration-500 ease-in-out",
+  menu: "text-sm md:ml-auto",
+  item: "block mt-4 md:inline-block md:mt-0 hover:text-primary font-bold text-lg lg:text-xl mr-3 lg:mr-6 transition duration-500 ease-in-out",
   contact:
-    "block mt-4 lg:inline-block btn btn-primary lg:leading-none lg:ml-4 lg:mt-0",
+    "block mt-4 md:inline-block btn btn-primary md:leading-none md:ml-4 md:mt-0",
 };
 
 export const Menu = ({ show }: IMenuProps) => {
   const router = useRouter();
-  const visible = show ? "block" : "hidden lg:block";
+  const visible = show ? "block" : "hidden md:block";
 
   return (
-    <div className={styles.wrapper}>
-      <div className={`${styles.menu} ${visible}`}>
+    <div className={`${styles.wrapper} ${visible}`}>
+      <div className={styles.menu}>
         {menu.map(({ src, text }: IMenu) => {
           const active = router.asPath === src ? "text-primary" : "";
           return (
