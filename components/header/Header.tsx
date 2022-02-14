@@ -4,7 +4,7 @@ import { useDevLogger } from "@/utils/dev-loger";
 
 const styles = {
   wrapper:
-    "group fixed w-full hover:shadow-2xl transition delay-150 bg-white bg-opacity-0 hover:bg-opacity-100 duration-700 ease-in-out z-10",
+    "group fixed w-full hover:shadow-2xl transition delay-150 bg-white bg-opacity-0 hover:bg-opacity-100 transition-long z-10",
   container:
     "container flex flex-wrap items-center justify-between mx-auto p-6 md:px-0",
 };
