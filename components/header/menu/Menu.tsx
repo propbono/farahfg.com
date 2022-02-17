@@ -24,9 +24,9 @@ const styles = {
     "block mt-4 md:inline-block btn btn-primary md:leading-none md:ml-4 md:mt-0",
 };
 
-export const Menu = ({ show }: IMenuProps) => {
+export const Menu: React.FC<IMenuProps> = (props) => {
   const router = useRouter();
-  const visible = show ? "block" : "hidden md:block";
+  const visible = props.show ? "block" : "hidden md:block";
 
   return (
     <div className={`${styles.wrapper} ${visible}`}>
