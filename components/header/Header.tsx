@@ -9,7 +9,7 @@ const styles = {
     "container flex flex-wrap items-center justify-between mx-auto p-6 md:px-0",
 };
 
-export const Header = () => {
+export const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [opacity, setOpacity] = useState("bg-opacity-0");
 
