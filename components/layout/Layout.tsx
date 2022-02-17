@@ -4,7 +4,7 @@ import { Header } from "@/components";
 
 interface LayoutProps {
   children: ReactNode;
-  seo: ISeo;
+  seo?: ISeo;
 }
 
 export interface ISeo {
@@ -12,15 +12,15 @@ export interface ISeo {
   keywords: string;
 }
 
-export const Layout = ({ children, seo }: LayoutProps) => {
+export const Layout: React.FC<LayoutProps> = (props) => {
   return (
     <>
       <Head>
-        <meta name="description" content={seo.description} />
-        <meta name="keywords" content={seo.keywords} />
+        <meta name="description" content={props.seo?.description} />
+        <meta name="keywords" content={props.seo?.keywords} />
       </Head>
       <Header />
-      <main>{children}</main>
+      <main>{props.children}</main>
     </>
   );
 };

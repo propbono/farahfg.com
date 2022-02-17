@@ -2,12 +2,12 @@ interface IHamburgerProps {
   onClick: () => void;
 }
 
-export const Hamburger = ({ onClick }: IHamburgerProps) => {
+export const Hamburger: React.FC<IHamburgerProps> = (props) => {
   return (
     <div className="block md:hidden">
       <button
         className="flex items-center px-2 py-2 border rounded text-primary hover:border-primary"
-        onClick={onClick}
+        onClick={props.onClick}
       >
         <svg
           className="w-3 h-3 fill-current"
