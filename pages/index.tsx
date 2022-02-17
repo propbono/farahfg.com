@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Hero, Layout } from "@/components";
+import { Footer, Hero, Layout } from "@/components";
 
 const Home: NextPage = () => {
   const seo = {
@@ -16,6 +16,7 @@ const Home: NextPage = () => {
       </Head>
       <Layout seo={seo}>
         <Hero />
+        <Footer />
       </Layout>
     </>
   );
