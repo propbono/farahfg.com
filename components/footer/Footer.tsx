@@ -1,8 +1,9 @@
 import React from "react";
+import { Container } from "../layout/container/Container";
+import { Section } from "../layout/section/Section";
 
 const styles = {
-  wrapper: "w-full bg-black text-gray-100 text-lg z-10",
-  container: "container  items-center justify-between mx-auto p-6 md:px-0",
+  section: "bg-dark-navy text-gray-100 text-lg z-10",
   footer:
     "flex text-center md:text-left flex-col-reverse w-full md:w-auto md:justify-between md:flex-row",
   menu: "flex flex-col md:flex-row items-center md:justify-end mb-3 md:mb-0",
@@ -11,9 +12,9 @@ const styles = {
 
 export const Footer: React.FC = () => {
   return (
-    <footer className={styles.wrapper}>
-      <div className={styles.container}>
-        <div className={styles.footer}>
+    <Section className={styles.section}>
+      <Container>
+        <footer className={styles.footer}>
           <div>
             <p>© 2022 Farah Freight Group</p>
           </div>
@@ -33,8 +34,8 @@ export const Footer: React.FC = () => {
               </li>
             </ul>
           </div>
-        </div>
-      </div>
-    </footer>
+        </footer>
+      </Container>
+    </Section>
   );
 };

@@ -5,3 +5,5 @@ export { Menu } from "./header/menu/Menu";
 export { Hamburger } from "./header/hamburger/Hamburger";
 export { Logo } from "./header/logo/Logo";
 export { Hero } from "./hero/Hero";
+export { Container } from "./layout/container/Container";
+export { Section } from "./layout/section/Section";

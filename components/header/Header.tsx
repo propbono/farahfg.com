@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Hamburger, Logo, Menu } from "@/components";
+import { Container, Hamburger, Logo, Menu, Section } from "@/components";
 import { useDevLogger } from "@/utils/dev-loger";
 
 const styles = {
-  wrapper:
-    "group fixed w-full hover:shadow-2xl transition delay-150 bg-white bg-opacity-0 hover:bg-opacity-100 transition-long z-10",
-  container:
-    "container flex flex-wrap items-center justify-between mx-auto p-6 md:px-0",
+  section:
+    "fixed hover:shadow-2xl transition delay-150 bg-white hover:bg-opacity-100 transition-long z-10",
+  header: "flex flex-wrap items-center justify-between",
 };
 
 export const Header: React.FC = () => {
@@ -36,13 +35,15 @@ export const Header: React.FC = () => {
   });
 
   return (
-    <div className={`${styles.wrapper} ${opacity}`}>
-      <div className={styles.container}>
-        <Logo />
-        <Hamburger onClick={onClickHandler} />
-        <Menu show={isOpen} />
-      </div>
-    </div>
+    <Section className={`${styles.section} ${opacity}`}>
+      <Container>
+        <header className={styles.header}>
+          <Logo />
+          <Hamburger onClick={onClickHandler} />
+          <Menu show={isOpen} />
+        </header>
+      </Container>
+    </Section>
   );
 };
 
