@@ -20,7 +20,7 @@ export const Layout: React.FC<LayoutProps> = (props) => {
         <meta name="keywords" content={props.seo?.keywords} />
       </Head>
       <Header />
-      <main>{props.children}</main>
+      <main className="flex flex-col min-h-screen">{props.children}</main>
     </>
   );
 };

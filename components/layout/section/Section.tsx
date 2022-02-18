@@ -1,7 +1,7 @@
 import React from "react";
 
 interface ISectionProps {
-  children: Array<React.ReactElement> | React.ReactElement;
+  children: Array<React.ReactNode> | React.ReactNode;
   className?: string;
 }
 
