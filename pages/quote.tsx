@@ -89,7 +89,6 @@ const Quote: NextPage = () => {
               />
               <textarea
                 {...register("message")}
-                type="textarea"
                 placeholder="Enter the quote request"
                 id="message"
                 rows={5}
