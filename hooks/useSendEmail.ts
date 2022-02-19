@@ -1,38 +1,27 @@
-import React, { useState } from "react";
+import { ISendEmailReturn, ISendEmailResponse } from "@/interfaces";
+import axios from "axios";
+import { useState } from "react";
 
-interface IResponse<T> {
-  message: string | null;
-  loading: boolean;
-  error: boolean;
-  sendEmail: (data: T) => Promise<void>;
-}
-
-export function useSendEmail<T>(): IResponse<T> {
+export function useSendEmail<T>(): ISendEmailReturn<T> {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<boolean>(false);
 
-  const sendEmail = async (data: T) => {
+  const sendEmail = async (requestData: T) => {
     setLoading(true);
     setMessage(null);
     setError(false);
 
     try {
-      const response = await fetch("/api/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      const response = await axios.post("/api/send-email", { ...requestData });
+      const data: ISendEmailResponse = response.data;
 
       if (response.status === 200) {
-        setMessage(
-          "Success! 🎉 We received your request. We will contact you soon."
-        );
+        setError(false);
+        setMessage(data.message);
       } else {
         setError(true);
-        setMessage("An error occurred. Please try again later.");
+        setMessage(data.message);
       }
     } catch (err: any) {
       setMessage(err.message);

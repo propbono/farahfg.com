@@ -1,30 +1,18 @@
 import React from "react";
-import {
-  Container,
-  Footer,
-  FormCard,
-  IFormCardTitle,
-  Layout,
-  Section,
-} from "@/components";
+import { Container, Footer, FormCard, Layout, Section } from "@/components";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useForm } from "react-hook-form";
 import { useSendEmail } from "@/hooks";
+import { IFormCardTitle, IRequestQuote } from "@/interfaces";
 
 const styles = {
   form: "flex flex-col h-auto",
+  error:
+    "shadow-red-100 shadow-lg bg-red-100 border-red-500 ring-red-500 focus:ring-red-500 focus:border-red-500 focus:bg-red-100",
   field:
     "flex w-full rounded-lg  mb-4 flex-1 px-4 py-3 text-gray-800 placeholder-gray-500 bg-gray-200 border-2 border-gray-300 outline-none focus:bg-gray-100 focus:border-primary focus:ring-primary",
 };
-
-interface IRequestQuote {
-  name: string;
-  email: string;
-  phone: string;
-  message: string;
-  subject: string;
-}
 
 const content: IFormCardTitle = {
   title1: "Let's talk!",
@@ -41,7 +29,9 @@ const Quote: NextPage = () => {
   } = useForm<IRequestQuote>();
 
   const { loading, message, error, sendEmail } = useSendEmail<IRequestQuote>();
-  const errorOrSuccess = error ? "text-red-600" : "text-green-600";
+  const errorOrSuccess = error ? "text-red-500" : "text-green-600";
+
+  const formHasErrors = Object.keys(errors).length > 0;
 
   const onSubmitHandler = (data: IRequestQuote) => {
     sendEmail(data);
@@ -56,22 +46,30 @@ const Quote: NextPage = () => {
         <Container className="mt-28">
           <FormCard content={content}>
             <form
-              onSubmit={() => handleSubmit(onSubmitHandler)}
+              onSubmit={handleSubmit(onSubmitHandler)}
               className={styles.form}
             >
               <input
-                {...register("name")}
+                {...register("name", { required: true })}
                 type="input"
-                placeholder="Enter your Name / Company"
+                placeholder="Enter your Name / Company *"
                 id="name"
-                className={styles.field}
+                className={`${styles.field} ${errors.name ? styles.error : ""}`}
               />
               <input
-                {...register("email")}
+                {...register("email", {
+                  required: true,
+                  pattern: {
+                    value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i,
+                    message: "Email is not valid.",
+                  },
+                })}
                 type="email"
-                placeholder="Enter your email"
+                placeholder="Enter your email *"
                 id="email"
-                className={styles.field}
+                className={`${styles.field} ${
+                  errors.email ? styles.error : ""
+                }`}
               />
               <input
                 {...register("phone")}
@@ -88,11 +86,13 @@ const Quote: NextPage = () => {
                 className={styles.field}
               />
               <textarea
-                {...register("message")}
-                placeholder="Enter the quote request"
+                {...register("message", { required: true })}
+                placeholder="Enter your message *"
                 id="message"
                 rows={5}
-                className={styles.field}
+                className={`${styles.field} ${
+                  errors.message ? styles.error : ""
+                }`}
               />
 
               <button
@@ -118,8 +118,16 @@ const Quote: NextPage = () => {
                 </svg>
               </button>
             </form>
+            {formHasErrors ? (
+              <div className="text-red-500 mt-2 text-center">
+                Please fill required fields.{" "}
+                {errors?.email ? errors.email.message : ""}
+              </div>
+            ) : null}
             {message ? (
-              <div className={`${errorOrSuccess} mt-2`}>{message}</div>
+              <div className={`${errorOrSuccess} mt-2 text-center`}>
+                {message}
+              </div>
             ) : null}
           </FormCard>
         </Container>
