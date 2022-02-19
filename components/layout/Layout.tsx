@@ -1,15 +1,11 @@
 import Head from "next/head";
 import React, { ReactNode } from "react";
 import { Header } from "@/components";
+import { ISeo } from "@/interfaces";
 
 interface LayoutProps {
   children: ReactNode;
   seo?: ISeo;
-}
-
-export interface ISeo {
-  description: string;
-  keywords: string;
 }
 
 export const Layout: React.FC<LayoutProps> = (props) => {

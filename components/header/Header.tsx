@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Container, Hamburger, Logo, Menu, Section } from "@/components";
-import { useDevLogger } from "@/utils/dev-loger";
 
 const styles = {
   section:
@@ -14,10 +13,7 @@ export const Header: React.FC = () => {
 
   const onClickHandler = () => {
     setIsOpen(!isOpen);
-    console.log("Clicked");
   };
-
-  useDevLogger("Header", { isOpen: isOpen, opacity: opacity });
 
   useEffect(() => {
     const handleScroll = () => {

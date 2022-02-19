@@ -1,3 +1,5 @@
+import { IFormCardTitle } from "@/interfaces";
+
 const styles = {
   card: "flex flex-col overflow-hidden rounded-lg shadow-lg md:flex-row group md:hover:scale-105 transition-long",
   cardLeft:
@@ -11,12 +13,6 @@ const styles = {
   formWrapper: "w-[350px] sm:w-[400px] md:w-[500px] lg:w-[600px] lg:py-20",
 };
 
-export interface IFormCardTitle {
-  title1: string;
-  title2: string;
-  title3: string;
-  text: string;
-}
 interface IFormCardProps {
   children: Array<React.ReactNode> | React.ReactNode;
   content: IFormCardTitle;

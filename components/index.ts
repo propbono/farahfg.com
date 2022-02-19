@@ -7,4 +7,4 @@ export { Logo } from "./header/logo/Logo";
 export { Hero } from "./hero/Hero";
 export { Container } from "./layout/container/Container";
 export { Section } from "./layout/section/Section";
-export * from "./forms/FormCard";
+export { FormCard } from "./forms/FormCard";

@@ -1,3 +1,4 @@
+import { IMenu } from "@/interfaces";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -5,12 +6,7 @@ interface IMenuProps {
   show: boolean;
 }
 
-interface IMenu {
-  src: string;
-  text: string;
-}
-
-const menu: IMenu[] = [
+const menu: Array<IMenu> = [
   { src: "/", text: "Home" },
   { src: "/about", text: "About" },
   { src: "/quote", text: "Request a Quote" },

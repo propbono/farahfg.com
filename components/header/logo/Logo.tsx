@@ -1,6 +1,7 @@
 import Image from "next/image";
-import logo from "@/public/img/logo.svg";
 import Link from "next/link";
+
+import logo from "@/public/img/logo.svg";
 
 export const Logo: React.FC = () => {
   return (
