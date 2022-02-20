@@ -9,7 +9,7 @@ interface IMenuProps {
 const menu: Array<IMenu> = [
   { src: "/", text: "Home" },
   { src: "/about", text: "About" },
-  { src: "/quote", text: "Request a Quote" },
+  { src: "/services", text: "Services" },
 ];
 
 const styles = {
