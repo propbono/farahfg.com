@@ -27,27 +27,27 @@ export default async function sendEmail(
   Subject: ${subject}
   Message: ${message}`;
 
-  const transporter = nodemailer.createTransport({
-    host: process.env.MAIL_HOST,
-    port: process.env.MAIL_PORT,
-    secure: true,
-    auth: {
-      user: process.env.MAIL_AUTH_USER,
-      pass: process.env.MAIL_AUTH_PASS,
-    },
-  });
+  // const transporter = nodemailer.createTransport({
+  //   host: process.env.MAIL_HOST,
+  //   port: process.env.MAIL_PORT,
+  //   secure: true,
+  //   auth: {
+  //     user: process.env.MAIL_AUTH_USER,
+  //     pass: process.env.MAIL_AUTH_PASS,
+  //   },
+  // });
 
-  const mail = {
-    to: process.env.MAIL_TO,
-    from: process.env.MAIL_FROM,
-    replyTo: email,
-    subject: `Message from: ${name} - ${subject}`,
-    text: message,
-    html: `<p>${message.replace(/(?:\r\n|\r|\n)/g, "<br>")}</p>`,
-  };
+  // const mail = {
+  //   to: process.env.MAIL_TO,
+  //   from: process.env.MAIL_FROM,
+  //   replyTo: email,
+  //   subject: `Message from: ${name} - ${subject}`,
+  //   text: formattedMessage,
+  //   html: `<p>${formattedMessage.replace(/(?:\r\n|\r|\n)/g, "<br>")}</p>`,
+  // };
 
   try {
-    await transporter.sendMail(mail);
+    // await transporter.sendMail(mail);
 
     return res.status(200).json({
       message:
