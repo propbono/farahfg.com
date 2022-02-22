@@ -1,7 +1,7 @@
 import { IRequestQuote } from "./../../interfaces/IRequestQuote";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { ISendEmailResponse } from "@/interfaces";
-import nodemailer from "nodemailer";
+import nodemailer, { TransportOptions } from "nodemailer";
 
 export default async function sendEmail(
   req: NextApiRequest,
@@ -27,9 +27,10 @@ export default async function sendEmail(
   Subject: ${subject}
   Message: ${message}`;
 
+  const options: TransportOptions = {};
   const transporter = nodemailer.createTransport({
     host: process.env.MAIL_HOST,
-    port: process.env.MAIL_PORT,
+    port: Number(process.env.MAIL_PORT),
     secure: true,
     auth: {
       user: process.env.MAIL_AUTH_USER,
