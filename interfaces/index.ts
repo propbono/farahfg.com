@@ -4,3 +4,4 @@ export * from "./IMenu";
 export * from "./ISeo";
 export * from "./IRequestQuote";
 export * from "./ISendEmailResponse";
+export * from "./IImage";
