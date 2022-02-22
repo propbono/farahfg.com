@@ -4,7 +4,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { useForm } from "react-hook-form";
 import { useSendEmail } from "@/hooks";
-import { IFormCardTitle, IRequestQuote } from "@/interfaces";
+import { ICardContent, IRequestQuote } from "@/interfaces";
 
 const styles = {
   form: "flex flex-col h-auto",
@@ -14,7 +14,7 @@ const styles = {
     "flex w-full rounded-lg  mb-4 flex-1 px-4 py-3 text-gray-800 placeholder-gray-500 bg-gray-200 border-2 border-gray-300 outline-none focus:bg-gray-100 focus:border-primary focus:ring-primary",
 };
 
-const content: IFormCardTitle = {
+const content: ICardContent = {
   title1: "Let's talk!",
   title2: "Tell us how",
   title3: "we can help.",
