@@ -1,4 +1,4 @@
-import { IFormCardTitle } from "@/interfaces";
+import { ICardContent } from "@/interfaces";
 
 const styles = {
   card: "flex flex-col overflow-hidden rounded-lg shadow-lg md:flex-row group md:hover:scale-105 transition-long",
@@ -15,7 +15,7 @@ const styles = {
 
 interface IFormCardProps {
   children: Array<React.ReactNode> | React.ReactNode;
-  content: IFormCardTitle;
+  content: ICardContent;
 }
 
 export const FormCard: React.FC<IFormCardProps> = (props) => {
