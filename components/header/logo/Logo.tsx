@@ -5,7 +5,10 @@ import logo from "@/public/img/logo.svg";
 
 export const Logo: React.FC = () => {
   return (
-    <div id="logo" className="relative flex gap-2 mr-3 uppercase items-center">
+    <div
+      id="logo"
+      className="relative flex gap-2 mr-3 uppercase items-center bg-white p-2"
+    >
       <Link href="/">
         <a className="w-[72px] h-[36px] md:w-[104px] md:h-[52px] relative">
           <Image
