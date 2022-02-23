@@ -3,19 +3,26 @@ import { Section, Container } from "@/components";
 import { IHeroImage } from "@/interfaces";
 
 const styles = {
-  section: "md:h-screen gradient relative bg-cover",
-  image: "hidden md:block",
+  section: "gradient relative bg-cover",
+  fullPage: "md:h-screen",
+  halfPage: "md:h-[50vh]",
+  image: "hidden md:block opacity-75",
   container: "mt-24 md:mt-40 z-auto relative",
 };
 
-interface IHeroFullPageProps {
+interface IHeroProps {
   image: IHeroImage;
+  size?: "full" | "half";
   children: React.ReactNode;
 }
 
-export const HeroFullPage: React.FC<IHeroFullPageProps> = (props) => {
+export const Hero: React.FC<IHeroProps> = (props) => {
   return (
-    <Section className={styles.section}>
+    <Section
+      className={`${styles.section} ${
+        props.size === "half" ? styles.halfPage : styles.fullPage
+      }`}
+    >
       <div className={styles.image}>
         <Image
           src={props.image.src}
@@ -23,6 +30,9 @@ export const HeroFullPage: React.FC<IHeroFullPageProps> = (props) => {
           alt={props.image.alt}
           layout="fill"
           objectFit="cover"
+          objectPosition={`center ${
+            props.image.position ? props.image.position : "center"
+          }`}
           quality={100}
           placeholder="blur"
         />

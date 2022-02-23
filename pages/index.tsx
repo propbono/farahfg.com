@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Card, Footer, HeroFullPage, Layout } from "@/components";
+import { Card, Footer, Hero, Layout } from "@/components";
 import { ICardContent, IHeroImage } from "@/interfaces";
 
-import backgroundImage from "@/public/img/coming-soon/josiah-farrow.avif";
+import backgroundImage from "@/public/img/josiah-farrow.avif";
 
 const content: ICardContent = {
   title1: "Serving",
@@ -19,6 +19,7 @@ const image: IHeroImage = {
 
 const Home: NextPage = () => {
   const seo = {
+    title: "Farah Freight Group",
     description:
       "Farah Freight Group website, showing services that the company provides.",
     keywords:
@@ -26,17 +27,12 @@ const Home: NextPage = () => {
   };
 
   return (
-    <>
-      <Head>
-        <title>Farah Freight Group</title>
-      </Head>
-      <Layout seo={seo}>
-        <HeroFullPage image={image}>
-          <Card content={content} />
-        </HeroFullPage>
-        <Footer />
-      </Layout>
-    </>
+    <Layout seo={seo}>
+      <Hero image={image}>
+        <Card content={content} />
+      </Hero>
+      <Footer />
+    </Layout>
   );
 };
 
