@@ -14,7 +14,9 @@ export const Layout: React.FC<LayoutProps> = (props) => {
       <Head>
         <meta name="description" content={props.seo?.description} />
         <meta name="keywords" content={props.seo?.keywords} />
-        <title>{props.seo.title}</title>
+        <title>
+          {props.seo?.title ? props.seo.title : "Farah Freight Group"}
+        </title>
       </Head>
       <Header />
       <main className="flex flex-col min-h-screen">{props.children}</main>
