@@ -1,7 +1,7 @@
 import { ICardContent } from "@/interfaces";
 
 const styles = {
-  card: "flex flex-col overflow-hidden rounded-lg shadow-lg md:flex-row group md:hover:scale-105 transition-long",
+  card: "flex flex-col overflow-hidden rounded-lg shadow-lg md:flex-row group md:hover:scale-105 transition-long bg-white",
   cardLeft:
     "items-center justify-center md:justify-start md:flex md:w-1/3 md:bg-dark-navy",
   cardRight:

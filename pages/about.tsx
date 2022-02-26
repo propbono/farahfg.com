@@ -1,9 +1,8 @@
 import React from "react";
-import { Hero, Layout } from "@/components";
+import { Container, Hero, Layout, Section } from "@/components";
 import type { NextPage } from "next";
 
 import backgroundImage from "@/public/img/dillon-kydd.avif";
-import Head from "next/head";
 import { IHeroImage } from "@/interfaces";
 
 const image: IHeroImage = {
@@ -23,9 +22,16 @@ const seo = {
 const About: NextPage = () => {
   return (
     <Layout seo={seo}>
-      <Hero size="half" image={image}>
-        <h1>About</h1>
+      <Hero size="half" image={image} shapeColor="text-navy">
+        <h1 className="mt-10 text-center text-6xl font-bold text-white shadow-sm">
+          About
+        </h1>
       </Hero>
+      <Section className="bg-navy">
+        <Container>
+          <h2 className="text-center text-white">About</h2>
+        </Container>
+      </Section>
     </Layout>
   );
 };

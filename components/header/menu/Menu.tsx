@@ -15,7 +15,7 @@ const menu: Array<IMenu> = [
 const styles = {
   wrapper: "w-full block flex-grow md:w-auto md:flex md:items-center",
   menu: "text-sm md:ml-auto",
-  item: "block mt-4 md:inline-block md:mt-0 hover:text-primary font-bold text-lg lg:text-xl mr-3 lg:mr-6 transition duration-500 ease-in-out",
+  item: "block mt-4 md:inline-block md:mt-0 hover:text-primary font-bold text-lg lg:text-xl mr-3 lg:mr-6 transition duration-500 ease-in-out ",
   contact:
     "block mt-4 md:inline-block btn btn-primary md:leading-none md:ml-4 md:mt-0",
 };

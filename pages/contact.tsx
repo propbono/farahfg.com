@@ -1,10 +1,18 @@
 import React from "react";
-import { Container, Footer, FormCard, Layout, Section } from "@/components";
+import {
+  Container,
+  Footer,
+  FormCard,
+  Layout,
+  Section,
+  Hero,
+} from "@/components";
 import type { NextPage } from "next";
-import Head from "next/head";
 import { useForm } from "react-hook-form";
 import { useSendEmail } from "@/hooks";
-import { ICardContent, IRequestQuote } from "@/interfaces";
+import { ICardContent, IHeroImage, IRequestQuote } from "@/interfaces";
+
+import backgroundImage from "@/public/img/pavan-trikutam.avif";
 
 const styles = {
   form: "flex flex-col h-auto",
@@ -19,6 +27,20 @@ const content: ICardContent = {
   title2: "Tell us how",
   title3: "we can help.",
   text: "If you have a question or would like to work with our company please feel free to contact us!",
+};
+
+const image: IHeroImage = {
+  src: backgroundImage,
+  alt: "Photo by Pavan Trikutam on Unsplash",
+  position: "Center",
+};
+
+const seo = {
+  title: "FFG - Contact Us",
+  description:
+    "Farah Freight Group website, showing services that the company provides.",
+  keywords:
+    "Trucks, Transportation, Trucking, Trucking Canada, Trucking Ontario",
 };
 
 const ContactUs: NextPage = () => {
@@ -38,12 +60,12 @@ const ContactUs: NextPage = () => {
   };
 
   return (
-    <Layout>
-      <Head>
-        <title>FFG - Contact Us</title>
-      </Head>
-      <Section className="flex-1">
-        <Container className="mt-28">
+    <Layout seo={seo}>
+      <Section>
+        <Hero size="half" image={image} shapeColor="text-off-white" />
+      </Section>
+      <Section className="flex-1 relative md:-mt-[35vh]">
+        <Container>
           <FormCard content={content}>
             <form
               onSubmit={handleSubmit(onSubmitHandler)}
