@@ -58,7 +58,7 @@ const Home: NextPage = () => {
             </p>
             <p className="mt-5 text-xl md:mt-10 md:text-3xl">Contact us:</p>
             <p className="mt-2 text-2xl font-bold md:mt-4 md:text-5xl">
-              416-702-3267
+              647-702-3267
             </p>
           </div>
         </div>
