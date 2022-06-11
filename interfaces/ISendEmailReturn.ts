@@ -1,6 +1,7 @@
 export interface ISendEmailReturn<T> {
   message: string | null;
-  loading: boolean;
+  isLoading: boolean;
+  isSuccess: boolean;
   error: boolean;
   sendEmail: (data: T) => Promise<void>;
 }

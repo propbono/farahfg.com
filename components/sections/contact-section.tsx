@@ -19,7 +19,8 @@ export const ContactSection = () => {
     formState: { errors },
   } = useForm<IContact>();
 
-  const { loading, message, error, sendEmail } = useSendEmail<IContact>();
+  const { isLoading, isSuccess, message, error, sendEmail } =
+    useSendEmail<IContact>();
   const errorOrSuccess = error ? "text-red-500" : "text-green-600";
 
   const formHasErrors = Object.keys(errors).length > 0;
@@ -27,8 +28,6 @@ export const ContactSection = () => {
   const onSubmitHandler = (data: IContact) => {
     sendEmail(data);
   };
-  console.log("Errors: ", errors);
-  console.log("FormHasError: ", formHasErrors);
 
   return (
     <Section id="contact" className="flex-1 relative md:mt-[15vh]">
@@ -55,7 +54,7 @@ export const ContactSection = () => {
               type="input"
               placeholder="Enter your Name / Company *"
               id="name"
-              className={`${styles.field} ${errors.name ? styles.error : ""}`}
+              className={`${styles.field} ${errors.name && styles.error}`}
             />
             <input
               {...register("email", {
@@ -68,7 +67,7 @@ export const ContactSection = () => {
               type="email"
               placeholder="Enter your email *"
               id="email"
-              className={`${styles.field} ${errors.email ? styles.error : ""}`}
+              className={`${styles.field} ${errors.email && styles.error}`}
             />
             <input
               {...register("phone")}
@@ -89,20 +88,18 @@ export const ContactSection = () => {
               placeholder="Enter your message *"
               id="message"
               rows={5}
-              className={`${styles.field} ${
-                errors.message ? styles.error : ""
-              }`}
+              className={`${styles.field} ${errors.message && styles.error}`}
             />
 
             <button
               type="submit"
               className="flex items-center justify-center btn btn-secondary"
             >
-              {loading ? "Sending..." : "Send"}
+              {isLoading ? "Sending..." : "Send"}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className={`w-6 h-6 mt-1 ml-2 ${
-                  loading ? "animate-bounce" : ""
+                  isLoading ? "animate-bounce" : ""
                 }`}
                 fill="none"
                 viewBox="0 0 24 24"
@@ -117,17 +114,17 @@ export const ContactSection = () => {
               </svg>
             </button>
           </form>
-          {formHasErrors ? (
-            <div className="mt-2 text-center text-red-500">
-              Please fill required fields.{" "}
-              {errors?.email ? errors.email.message : ""}
-            </div>
-          ) : null}
-          {message ? (
-            <div className={`${errorOrSuccess} mt-2 text-center`}>
-              {message}
-            </div>
-          ) : null}
+          <div className="mt-4 text-center">
+            {formHasErrors && (
+              <p className="text-red-500">Please fill required fields.</p>
+            )}
+            {errors?.email && (
+              <p className="text-red-500">{errors.email.message}</p>
+            )}
+            {isSuccess && <p className="text-green-500">{message}</p>}
+            {error && <p className="text-red-500">{message}</p>}
+            &nbsp;
+          </div>
         </FormCard>
       </Container>
     </Section>

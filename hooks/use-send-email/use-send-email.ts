@@ -3,12 +3,13 @@ import { useState } from "react";
 import { ISendEmailResponse, ISendEmailReturn } from "@/interfaces";
 
 export function useSendEmail<T>(): ISendEmailReturn<T> {
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<boolean>(false);
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
 
   const sendEmail = async (requestData: T) => {
-    setLoading(true);
+    setIsLoading(true);
     setMessage(null);
     setError(false);
 
@@ -19,17 +20,20 @@ export function useSendEmail<T>(): ISendEmailReturn<T> {
       if (response.status === 200) {
         setError(false);
         setMessage(data.message);
+        setIsSuccess(true);
       } else {
         setError(true);
         setMessage(data.message);
+        setIsSuccess(false);
       }
     } catch (err: any) {
       setMessage(err.message);
       setError(true);
+      setIsSuccess(false);
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   };
 
-  return { loading, message, error, sendEmail } as const;
+  return { isLoading, message, error, isSuccess, sendEmail } as const;
 }
