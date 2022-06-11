@@ -1,13 +1,13 @@
-import { IRequestQuote } from "./../../interfaces/IRequestQuote";
+import { IContact } from "ui/interfaces";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { ISendEmailResponse } from "@/interfaces";
-import nodemailer, { TransportOptions } from "nodemailer";
+import { ISendEmailResponse } from "hooks/interfaces";
+import nodemailer from "nodemailer";
 
 export default async function sendEmail(
   req: NextApiRequest,
   res: NextApiResponse<ISendEmailResponse>
 ) {
-  let { email, name, phone, subject, message }: IRequestQuote = req.body;
+  let { email, name, phone, subject, message }: IContact = req.body;
 
   if (!email || !email.trim().length) {
     return res
@@ -27,7 +27,6 @@ export default async function sendEmail(
   Subject: ${subject}
   Message: ${message}`;
 
-  const options: TransportOptions = {};
   const transporter = nodemailer.createTransport({
     host: process.env.MAIL_HOST,
     port: Number(process.env.MAIL_PORT),

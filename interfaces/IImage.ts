@@ -1,5 +1,5 @@
-export interface IHeroImage {
-  src: StaticImageData;
+export interface IImage {
+  src: string;
   alt: string;
   position?: "Bottom" | "Top" | "Center";
 }

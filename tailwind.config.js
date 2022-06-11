@@ -1,6 +1,7 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
+  mode: "jit",
   content: [
     "./pages/**/*.{js,jsx,ts,tsx}",
     "./components/**/*.{js,jsx,ts,tsx}",
@@ -21,7 +22,8 @@ module.exports = {
       },
       colors: {
         primary: "#A32035",
-        "dark-navy": "#0D4157",
+        secondary: "#0D4157",
+        "secondary-light": "#607680",
         navy: "#1077A3",
         black: "#212121",
         brown: "#3D2B25",

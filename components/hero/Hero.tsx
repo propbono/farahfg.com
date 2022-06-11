@@ -1,18 +1,20 @@
+import { IImage } from "@/interfaces";
 import Image from "next/image";
-import { Section, Container } from "@/components";
-import { IHeroImage } from "@/interfaces";
+import { Container } from "../container/container";
+import { Section } from "../section/section";
 
 const styles = {
   section: "relative bg-cover bg-gray-100",
   fullPage: "md:h-screen",
   halfPage: "md:h-[50vh]",
+  threeQuaterPage: "md:h-[75vh]",
   image: "hidden md:block shadow-lg",
-  container: "mt-24 md:mt-40 z-auto relative",
+  container: "mt-24 md:mt-40 z-5 relative",
 };
 
 interface IHeroProps {
-  image: IHeroImage;
-  size?: "full" | "half";
+  image: IImage;
+  size?: "full" | "half" | "3/4";
   shapeColor?: string;
   children?: React.ReactNode;
 }
@@ -20,14 +22,18 @@ interface IHeroProps {
 export const Hero: React.FC<IHeroProps> = (props) => {
   return (
     <Section
+      id="hero"
       className={`${styles.section} ${
-        props.size === "half" ? styles.halfPage : styles.fullPage
+        props.size === "3/4"
+          ? styles.threeQuaterPage
+          : props.size === "half"
+          ? styles.halfPage
+          : styles.fullPage
       }`}
     >
       <div className={styles.image}>
         <Image
           src={props.image.src}
-          blurDataURL=""
           alt={props.image.alt}
           layout="fill"
           objectFit="cover"
@@ -35,10 +41,12 @@ export const Hero: React.FC<IHeroProps> = (props) => {
             props.image.position ? props.image.position : "center"
           }`}
           quality={100}
-          placeholder="blur"
-          className="opacity-75 "
+          className="opacity-75"
         />
-        <div className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-[70px]">
+        <div
+          id="shape-cut-off"
+          className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-[70px]"
+        >
           <svg
             className="absolute bottom-0 overflow-hidden"
             xmlns="http://www.w3.org/2000/svg"
@@ -63,3 +71,5 @@ export const Hero: React.FC<IHeroProps> = (props) => {
     </Section>
   );
 };
+
+export default Hero;
