@@ -41,8 +41,6 @@ export const ContactSection = () => {
     } else setHideSuccessMessage(false);
   }, [isSuccess, reset]);
 
-  console.log("Errors: ", errors);
-  console.log("IsSuccess: ", isSuccess);
   return (
     <Section id="contact" className="flex-1 relative md:mt-[15vh]">
       <Container>
