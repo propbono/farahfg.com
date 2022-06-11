@@ -10,8 +10,9 @@ export const ContactSection = () => {
   const styles = {
     form: "flex flex-col h-auto gap-4",
     error: "bg-red-200 transition-long",
+    nonError: "bg-gray-200 transition-long",
     field:
-      "w-full px-4 py-3 rounded-lg text-gray-800 placeholder-gray-500 bg-gray-200 border-2 border-gray-300 outline-none  focus:border-primary focus:ring-primary focus:bg-gray-100",
+      "w-full px-4 py-3 rounded-lg text-gray-800 placeholder-gray-500 border-2 border-gray-300 outline-none  focus:border-primary focus:ring-primary focus:bg-gray-100",
   };
 
   const [hideSuccessMessage, setHideSuccessMessage] = useState(false);
@@ -40,6 +41,8 @@ export const ContactSection = () => {
     } else setHideSuccessMessage(false);
   }, [isSuccess, reset]);
 
+  console.log("Errors: ", errors);
+  console.log("IsSuccess: ", isSuccess);
   return (
     <Section id="contact" className="flex-1 relative md:mt-[15vh]">
       <Container>
@@ -65,7 +68,9 @@ export const ContactSection = () => {
               type="input"
               placeholder="Enter your Name / Company *"
               id="name"
-              className={`${styles.field} ${errors.name && styles.error}`}
+              className={`${styles.field} ${
+                errors.name ? styles.error : styles.nonError
+              }`}
             />
             <input
               {...register("email", {
@@ -78,28 +83,32 @@ export const ContactSection = () => {
               type="email"
               placeholder="Enter your email *"
               id="email"
-              className={`${styles.field} ${errors.email && styles.error}`}
+              className={`${styles.field} ${
+                errors.email ? styles.error : styles.nonError
+              }`}
             />
             <input
               {...register("phone")}
               type="input"
               placeholder="Enter your phone"
               id="phone"
-              className={styles.field}
+              className={`${styles.field} ${styles.nonError}`}
             />
             <input
               {...register("subject")}
               type="input"
               placeholder="Enter the subject"
               id="subject"
-              className={styles.field}
+              className={`${styles.field} ${styles.nonError}`}
             />
             <textarea
               {...register("message", { required: true })}
               placeholder="Enter your message *"
               id="message"
               rows={5}
-              className={`${styles.field} ${errors.message && styles.error}`}
+              className={`${styles.field} ${
+                errors.message ? styles.error : styles.nonError
+              }`}
             />
 
             <button
@@ -125,7 +134,7 @@ export const ContactSection = () => {
               </svg>
             </button>
           </form>
-          <div className="mt-4 text-center transition-long">
+          <div className="mt-4 text-center">
             {formHasErrors && (
               <p className="text-red-500">Please fill required fields.</p>
             )}
@@ -136,7 +145,7 @@ export const ContactSection = () => {
               <p
                 className={`${
                   hideSuccessMessage ? "text-transparent" : "text-green-500"
-                }`}
+                } transition-long`}
               >
                 {message}
               </p>
