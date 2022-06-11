@@ -39,7 +39,15 @@ export const ContactSection = () => {
     <Section id="contact" className="flex-1 relative md:mt-[15vh]">
       <Container>
         <FormCard
-          title={content}
+          title={
+            <h1>
+              Let&apos;s talk!{" "}
+              <span className="text-secondary-light group-hover:text-primary transition-long">
+                Tell us how
+              </span>{" "}
+              we can help.
+            </h1>
+          }
           helperText="If you have a question or would like to work with our
           company please feel free to contact us!"
         >

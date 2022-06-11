@@ -10,13 +10,12 @@ const styles = {
   title:
     "text-2xl md:text-3xl xl:text-4xl font-bold text-secondary md:text-gray-100 mb-5 md:mb-10 leading-tight",
   subtitle: "text-2xl font-bold md:text-gray-100",
-  titleColor: "text-secondary-light group-hover:text-primary transition-long",
   helperText: "mt-2 text-black md:text-gray-400",
 };
 
 type IFormCardProps = {
   children: Array<React.ReactNode> | React.ReactNode;
-  title?: ICompoundTitle;
+  title?: React.ReactNode | string;
   subtitle?: string;
   helperText?: string;
 };
@@ -25,21 +24,13 @@ export const FormCard: React.FC<IFormCardProps> = (props) => {
   return (
     <div className={styles.card}>
       <div className={styles.cardLeftContainer}>
-        {/* <div className="px-12 py-6"> */}
         {!!props.title ? (
-          <h1 className={styles.title}>
-            {props.title?.title1 + " "}
-            <span className={styles.titleColor}>
-              {props.title?.title2 + " "}
-            </span>
-            {props.title?.title3}
-          </h1>
+          <div className={styles.title}>{props.title}</div>
         ) : !!props.subtitle ? (
           <h2 className={styles.subtitle}>{props.subtitle}</h2>
         ) : null}
 
         <p className={styles.helperText}>{props.helperText}</p>
-        {/* </div> */}
       </div>
       <div className={styles.cardRightContainer}>
         <div className={styles.cardRightContent}>{props.children}</div>
