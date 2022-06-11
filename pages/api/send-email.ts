@@ -1,6 +1,5 @@
-import { IContact } from "ui/interfaces";
+import { IContact, ISendEmailResponse } from "@/interfaces";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { ISendEmailResponse } from "hooks/interfaces";
 import nodemailer from "nodemailer";
 
 export default async function sendEmail(
