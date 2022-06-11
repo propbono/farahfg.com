@@ -9,8 +9,8 @@ import { ScrollLink } from "../scroll-link/scroll-link";
 export const AboutSection = () => {
   return (
     <Section>
-      <Container className="my-48">
-        <div className="grid grid-cols-1 gap-14 md:grid-cols-2">
+      <Container className="md:my-48">
+        <div className="grid grid-cols-1 gap-14 lg:grid-cols-2">
           <div id="about" className="w-full bg-cover">
             <Image
               className="rounded-tl-[8rem] rounded-br-[12rem] shadow-lg"
@@ -38,7 +38,7 @@ export const AboutSection = () => {
                 southern and western continents.
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-6 mt-4 justify-items-center md:px-6">
+            <div className="grid grid-cols-2 gap-6 mt-4 justify-items-center">
               <ScrollLink to="services" offset={-185} className="w-full">
                 <button className="w-full btn btn-secondary">Services</button>
               </ScrollLink>

@@ -7,7 +7,7 @@ export const Logo: React.FC = () => {
   return (
     <div
       id="logo"
-      className="relative flex items-center gap-2 px-4 py-3 mr-3 uppercase bg-white"
+      className="relative flex items-center gap-2 py-3 mr-3 uppercase lg:bg-white lg:pl-4"
     >
       <ScrollLink
         to="hero"
@@ -30,7 +30,7 @@ export const Logo: React.FC = () => {
           <span className="font-bold">Farah</span> Freight <br /> Group
         </h2>
       </div>
-      <div className="p-4 text-sm font-bold border-l-2 lg:text-lg border-primary">
+      <div className="hidden p-4 text-sm font-bold border-l-2 sm:flex lg:text-lg border-primary">
         +1 647-702-3267
       </div>
     </div>

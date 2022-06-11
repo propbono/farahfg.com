@@ -12,7 +12,7 @@ export const ServicesSection: React.FC = () => {
   return (
     <Section id="services" className="z-5 my-4 md:mt-[-14rem] relative">
       <Container>
-        <div className="grid grid-cols-1 gap-20 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-20 md:grid-cols-2 lg:grid-cols-3">
           <ProductCardIcon
             icon={<GlobeIcon />}
             title="Worldwide transport"

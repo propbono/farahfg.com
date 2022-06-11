@@ -1,5 +1,3 @@
-import { ICompoundTitle } from "@/interfaces";
-
 const styles = {
   card: "flex flex-col overflow-hidden rounded-lg shadow-lg md:flex-row group md:hover:scale-105 transition-long bg-white mb-6",
   cardLeftContainer:

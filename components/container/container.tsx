@@ -8,10 +8,7 @@ interface IContainerProps {
 export const Container: React.FC<IContainerProps> = (props) => {
   const additionalClasses = props.className ? ` ${props.className}` : "";
   return (
-    <div
-      id={props.id}
-      className={`container mx-auto p-6 md:px-0${additionalClasses}`}
-    >
+    <div id={props.id} className={`container mx-auto p-6 ${additionalClasses}`}>
       {props.children}
     </div>
   );

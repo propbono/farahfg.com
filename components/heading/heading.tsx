@@ -1,6 +1,6 @@
 const styles = {
-  h1: "mt-10 text-4xl md:text-6xl font-bold text-center text-white",
-  h2: "mb-4 text-4xl md:text-6xl font-bold text-primary",
+  h1: "mt-10 text-4xl md:text-6xl font-bold text-center text-white leading-loose",
+  h2: "mb-4 text-4xl md:text-6xl font-bold text-primary leading-relaxed",
   h3: "mb-4 text-2xl md:text-4xl font-bold leading-snug text-secondary",
   shadow: { textShadow: "2px 2px 4px #212121" },
 };

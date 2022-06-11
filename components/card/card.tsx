@@ -10,7 +10,7 @@ export interface ICardProps {
 
 export const Card: React.FC<ICardProps> = (props) => {
   return (
-    <div className="w-full px-8 pt-6 pb-10 bg-white rounded-md shadow-md group lg:opacity-60 lg:w-3/5 hover:opacity-100 transition-long">
+    <div className="w-full px-8 pt-6 pb-10 mt-10 bg-white rounded-md shadow-md md:mt-0 group lg:opacity-60 lg:w-3/4 hover:opacity-100 transition-long">
       {props?.pretitle && <div>{props.pretitle}</div>}
       <div>{props.title}</div>
       {props?.separator && (
