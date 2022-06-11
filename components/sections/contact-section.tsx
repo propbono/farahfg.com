@@ -1,5 +1,6 @@
 import { useSendEmail } from "@/hooks";
 import { IContact } from "@/interfaces";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Container } from "../container/container";
 import { FormCard } from "../form-card/form-card";
@@ -13,21 +14,31 @@ export const ContactSection = () => {
       "w-full px-4 py-3 rounded-lg text-gray-800 placeholder-gray-500 bg-gray-200 border-2 border-gray-300 outline-none  focus:border-primary focus:ring-primary focus:bg-gray-100",
   };
 
+  const [hideSuccessMessage, setHideSuccessMessage] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<IContact>();
 
   const { isLoading, isSuccess, message, error, sendEmail } =
     useSendEmail<IContact>();
-  const errorOrSuccess = error ? "text-red-500" : "text-green-600";
 
   const formHasErrors = Object.keys(errors).length > 0;
 
   const onSubmitHandler = (data: IContact) => {
     sendEmail(data);
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      setTimeout(() => {
+        setHideSuccessMessage(true);
+        reset();
+      }, 3000);
+    } else setHideSuccessMessage(false);
+  }, [isSuccess, reset]);
 
   return (
     <Section id="contact" className="flex-1 relative md:mt-[15vh]">
@@ -114,14 +125,22 @@ export const ContactSection = () => {
               </svg>
             </button>
           </form>
-          <div className="mt-4 text-center">
+          <div className="mt-4 text-center transition-long">
             {formHasErrors && (
               <p className="text-red-500">Please fill required fields.</p>
             )}
             {errors?.email && (
               <p className="text-red-500">{errors.email.message}</p>
             )}
-            {isSuccess && <p className="text-green-500">{message}</p>}
+            {isSuccess && (
+              <p
+                className={`${
+                  hideSuccessMessage ? "text-transparent" : "text-green-500"
+                }`}
+              >
+                {message}
+              </p>
+            )}
             {error && <p className="text-red-500">{message}</p>}
             &nbsp;
           </div>
