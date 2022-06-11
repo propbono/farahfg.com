@@ -1,5 +1,5 @@
 import { useSendEmail } from "@/hooks";
-import { ICompoundTitle, IContact } from "@/interfaces";
+import { IContact } from "@/interfaces";
 import { useForm } from "react-hook-form";
 import { Container } from "../container/container";
 import { FormCard } from "../form-card/form-card";
@@ -8,16 +8,9 @@ import { Section } from "../section/section";
 export const ContactSection = () => {
   const styles = {
     form: "flex flex-col h-auto gap-4",
-    error:
-      "shadow-red-100 shadow-lg bg-red-100 border-red-500 ring-red-500 focus:ring-red-500 focus:border-red-500 focus:bg-red-100",
+    error: "bg-red-200 transition-long",
     field:
       "w-full px-4 py-3 rounded-lg text-gray-800 placeholder-gray-500 bg-gray-200 border-2 border-gray-300 outline-none  focus:border-primary focus:ring-primary focus:bg-gray-100",
-  };
-
-  const content: ICompoundTitle = {
-    title1: "Let's talk!",
-    title2: "Tell us how",
-    title3: "we can help.",
   };
 
   const {
@@ -34,6 +27,8 @@ export const ContactSection = () => {
   const onSubmitHandler = (data: IContact) => {
     sendEmail(data);
   };
+  console.log("Errors: ", errors);
+  console.log("FormHasError: ", formHasErrors);
 
   return (
     <Section id="contact" className="flex-1 relative md:mt-[15vh]">
