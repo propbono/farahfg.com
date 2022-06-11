@@ -1,7 +1,7 @@
 import { IImage } from "@/interfaces";
 import { Card } from "../card/card";
 import Heading, { HeadingType } from "../heading/heading";
-import { Hero } from "../hero/hero";
+import { HeroImage } from "../hero-image/hero-image";
 import { ScrollLink } from "../scroll-link/scroll-link";
 
 const image: IImage = {
@@ -11,7 +11,7 @@ const image: IImage = {
 
 export const HeroSection = () => {
   return (
-    <Hero image={image} size="full">
+    <HeroImage image={image} size="full">
       <Card
         title={<Heading type={HeadingType.h3}> Serving Canada & USA</Heading>}
         text={
@@ -28,6 +28,6 @@ export const HeroSection = () => {
           </ScrollLink>
         }
       />
-    </Hero>
+    </HeroImage>
   );
 };

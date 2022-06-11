@@ -19,7 +19,7 @@ interface IHeroProps {
   children?: React.ReactNode;
 }
 
-export const Hero: React.FC<IHeroProps> = (props) => {
+export const HeroImage: React.FC<IHeroProps> = (props) => {
   return (
     <Section
       id="hero"
@@ -72,4 +72,4 @@ export const Hero: React.FC<IHeroProps> = (props) => {
   );
 };
 
-export default Hero;
+export default HeroImage;
