@@ -5,7 +5,7 @@ import { Section } from "../section/section";
 
 const styles = {
   section: "relative bg-cover bg-gray-100",
-  fullPage: "md:h-screen",
+  fullPage: "md:min-h-screen",
   halfPage: "md:h-[50vh]",
   threeQuaterPage: "md:h-[75vh]",
   image: "hidden md:block shadow-lg",
