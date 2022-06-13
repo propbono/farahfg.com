@@ -14,7 +14,7 @@ class MyDocument extends Document {
   }
   render() {
     return (
-      <Html>
+      <Html lang="en">
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
@@ -48,7 +48,7 @@ class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#005c82" />
           <meta name="theme-color" content="#ffffff" />
         </Head>
-        <body>
+        <body className="bg-off-white">
           <Main />
           <NextScript />
         </body>

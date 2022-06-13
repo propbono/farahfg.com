@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 .gradient {
   background-image: linear-gradient(
     to right top,
@@ -11,4 +15,20 @@
     #3d548d,
     #005c82
   );
+}
+
+.btn {
+  @apply px-6 py-4 text-lg lg:text-xl font-bold text-gray-100 transition duration-300 ease-in border-white rounded-lg;
+}
+
+.btn-primary {
+  @apply bg-primary hover:bg-navy focus:bg-navy focus:ring-primary;
+}
+
+.btn-secondary {
+  @apply bg-navy hover:bg-primary focus:bg-primary focus:ring-navy;
+}
+
+.transition-long {
+  @apply transition duration-1000 ease-in-out delay-150;
 }
